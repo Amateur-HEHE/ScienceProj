@@ -81,26 +81,26 @@ def classify_gesture(landmarks, handedness_label):
     # --- All four fingers curled: check thumb direction for up/down/fist
     if not index and not middle and not ring and not pinky:
         if thumb_tip_y < thumb_mcp_y - 0.06:
-            return "Thumbs Up 👍"
+            return "I Agree 👍"
         elif thumb_tip_y > thumb_mcp_y + 0.06:
-            return "Thumbs Down 👎"
+            return "Nope 👎"
         else:
-            return "Fist ✊"
+            return "Help ✊"
 
     # --- Peace / Victory
     if index and middle and not ring and not pinky and not thumb:
-        return "Peace ✌️"
+        return "Victory ✌️"
 
     # --- I Love You (ASL): thumb + index + pinky, no middle/ring
     if thumb and index and pinky and not middle and not ring:
-        return "I Love You 🤟"
+        return "Love You Sir Ji 🤟"
 
     # --- Single pointing finger
     if index and not middle and not ring and not pinky:
-        return "Point ☝️"
+        return "Attention ☝️"
 
     # --- Open palm: everything extended
     if thumb and index and middle and ring and pinky:
-        return "Open Palm ✋"
+        return "Hello ✋"
 
     return "Unknown"
